@@ -1,0 +1,46 @@
+<div class="col-lg-12">
+	<div>
+		<h2>Courses</h2>
+		<p>Take a look to our different courses.</p>
+	<!-- Filtres -->
+		<ul class="nav nav-pills">
+			<li ng-click="techFilter=techfilter"><a href="">ALL</a></li>
+			<li ng-click="techFilter = 'HTML'"><a href="">HTML</a></li>
+			<li ng-click="techFilter = 'CSS'"><a href="">CSS</a></li>
+			<li ng-click="techFilter = 'PHP'"><a href="">PHP</a></li>
+			<li ng-click="techFilter = 'JS'"><a href="">JS</a></li>
+		</ul>
+	</div>
+	<hr>
+	<div ng-repeat="course in courses | filter:{'tech' : techFilter}">
+		<div class="col-lg-4 ">
+			<div class="panel" ng-class="{'panel-success': course.finished, 'panel-warning' : course.started}">
+				<div class="panel-heading">
+					<h3 class="panel-title"><span ng-bind="course.title"></span><span class="pull-right" data-toggle="tooltip" data-placement="top" title="" data-original-title="Online course"><i class="fa" ng-class="{'fa-video-camera' : course.online}"></i></span></h3>
+
+				</div>
+				<div class="panel-body coursePanel">
+					<div class="progress" ng-if="course.complete>0">
+						<div class="progress-bar" ng-class="{'progress-bar-success': course.complete===100}" style="width: {{course.complete}}%"></div>
+					</div>
+					<p ng-bind="course.description | limitTo : 150:'...'"></p>
+					<a href="course/{{course.id}}">
+						<button class="btn btn-primary pull-right">
+							<span ng-if="course.finished"><i class="fa fa-check"></i> You did it !</span>
+							<span ng-if="course.started"><i class="fa fa-terminal"></i> Continue this course</span>
+							<span ng-if="!course.started">
+								<span ng-hide="course.finished">
+									<i class="fa fa-graduation-cap"></i> Let's go for this course
+								</span>
+							</span>
+						</button>
+					</a>
+				</div>
+				<div class="panel-footer">
+					<span class="label label-info" ng-bind="course.tech"></span>
+					<span class="pull-right">Lvl: <span class="badge" ng-bind="course.difficulty"></span></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

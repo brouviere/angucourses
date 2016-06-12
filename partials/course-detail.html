@@ -1,0 +1,23 @@
+<div class="courseDetail" ng-if="courseFound">
+<section class="text-center courseDetailHeader">
+	<h2>
+		<span ng-bind="courseFound.title"></span>
+		<i class="fa fa-flash" ng-repeat="icon in courseFound.difficultyIcon"></i>
+	</h2>
+	<img class=" courseIcon" src="{{courseFound.icon}}" alt="">
+</section>
+
+	
+</div>
+<div>
+	<p ng-bind="courseFound.description"></p>
+	<a href="course/{{courseFound.previousCourse}}"><i class="fa fa-arrow-left"></i> Previous course</a>
+	<a class="pull-right" href="course/{{courseFound.nextCourse}}"><i class="fa fa-arrow-right"></i> Next course</a>
+</div>
+
+
+<!-- If error -->
+<div ng-if="!courseFound">
+	<p>Course not found</p>
+	<a href="home"><i class="fa fa-arrow-left"></i> Back</a>
+</div>

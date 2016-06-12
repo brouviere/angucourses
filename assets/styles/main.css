@@ -1,0 +1,48 @@
+.main-title span{
+	color: #0ce3ac;
+}
+
+.nav-pills img {
+	width: 35px;
+}
+
+.coursePanel {
+	min-height: 200px;
+}
+
+.courseDetail > .courseIcon {
+	width : 100px;
+}
+
+
+.courseDetailHeader {
+	min-height: 50vh;
+	background: url(../img/competences.jpg);
+	background-position: center;
+	background-size: cover;
+	
+}
+
+.courseDetailHeader h2 {
+	font-size: 55px;
+}
+
+.courseDetailHeader img {
+	width: 20vw;
+}
+
+
+.header > a > h1.mainTitle {
+	color:white;
+}
+
+.mainTitle:hover {
+	text-decoration: none;
+}
+/*
+@media screen and (min-width: 1200px) {
+	.courseDetailHeader {
+    	margin-top: 200px;
+    	
+  }
+}*/
